@@ -28,6 +28,11 @@ function MatchesFacade() {
         fetch(URL + "/api/match/create", options).then(r => r.json());
     }
 
+    const updateMatch = (match) =>  {
+        const options = makeOptions("PUT", match, true); //True add's the token
+        fetch(URL + "/api/match/create", options).then(r => r.json());
+    }
+
     // Players
 
     const getPlayers = () => {
@@ -38,6 +43,11 @@ function MatchesFacade() {
     const createPlayer = (player) => {
         const options = makeOptions("POST", player, true); //True add's the token
         fetch(URL + "/api/player/create", options).then(r => r.json());
+    }
+
+    const deletePlayer = (playerID) => {
+        const options = makeOptions("DELETE", playerID, true); //True add's the token
+        return fetch(URL + "/api/player/delete/"+playerID, options);
     }
 
     // Locations
@@ -67,7 +77,11 @@ function MatchesFacade() {
         getMatches,
         getMatchByID,
         createMatch,
-        createPlayer
+        updateMatch,
+        createPlayer,
+        getPlayers,
+        deletePlayer,
+        createLocation
     }
 }
 

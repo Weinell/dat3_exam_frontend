@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import {LinkContainer} from "react-router-bootstrap";
 import Frontpage from "./components/Frontpage";
 import {useNavigate} from 'react-router-dom';
+import matchesFacade from "MatchesFacade";
 
 
 function LogIn({login}) {
@@ -18,12 +19,18 @@ function LogIn({login}) {
         setLoginCredentials({...loginCredentials, [evt.target.id]: evt.target.value})
     }
 
+    const populateUsers = (evt) => {
+        evt.matchesFacade.populate();
+    }
+
     return (
       <Container style={{height: "calc(75vh - 60px)"}}>
           <div className={"d-flex align-items-center justify-content-center h-100 "}>
               <Form onChange={onChange} onSubmit={performLogin} style={{width:"30%"}} className={"mt-5 shadow-lg p-5 mb-5 bg-white rounded"} >
                   <div className="text-center">
-                      <h2>Login</h2>
+                      <h1>Login</h1>
+                      <h3>user: user // user</h3>
+                      <h3>admin: admin // admin</h3>
                   </div>
                   <Form.Group className="mb-3" controlId="username">
                       <Form.Label >Email</Form.Label>
@@ -37,6 +44,8 @@ function LogIn({login}) {
                       Login
                   </Button>
               </Form>
+              <h2>Populate (only do this once)</h2>
+              <Button onClick={populateUsers}>Populate</Button>
           </div>
       </Container>
     )
@@ -65,7 +74,6 @@ function App() {
           {!showLogin &&
               <div>
                   <Navbar expand="lg" style={{backgroundColor:"white !important" }} className={"m-auto w-50"}>
-                      <Navbar.Toggle aria-controls="basic-navbar-nav" />
                       <Navbar.Collapse id="basic-navbar-nav">
                           <Nav className="me-auto m-auto">
                               <LinkContainer to="/">

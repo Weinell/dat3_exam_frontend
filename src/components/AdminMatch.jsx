@@ -52,6 +52,11 @@ const AdminMatch = () => {
     let res = matchesFacade.createMatch(matchObj);
   };
 
+  let handleUpdate = async (e) => {
+    e.preventDefault();
+    let res = matchesFacade.createMatch(matchObj);
+  };
+
   return (
     <div className="content">
       {!isLoaded ? (
@@ -89,6 +94,37 @@ const AdminMatch = () => {
                 />
 
                 <button type="submit">Create</button>
+              </form>
+            </div>
+            <h3 className={"text-center"}>Update a match</h3>
+
+            <div className="matches">
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  value={opponentTeam}
+                  placeholder="Opponent Team"
+                  onChange={(e) => setOpponentTeam(e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={judge}
+                  placeholder="Judge"
+                  onChange={(e) => setJudge(e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={type}
+                  placeholder="Type"
+                  onChange={(e) => setType(e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={inDoors}
+                  placeholder="InDoors"
+                  onChange={(e) => setInDoors(e.target.value)}
+                />
+                <button type="submit">Update</button>
               </form>
             </div>
             <div>

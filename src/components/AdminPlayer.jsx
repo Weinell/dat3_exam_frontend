@@ -18,6 +18,26 @@ const AdminPlayer = () => {
     status: status,
   };
 
+  const [players, setPlayers] = useState([
+    {
+        name: "name",
+        phone: "phone",
+        email: "email",
+        status: 1,
+    },
+  ]);
+
+  useEffect(() => {
+    matchesFacade.getPlayers()
+      .then((res) => res.json())
+      .then((players) => setPlayers(players))
+      .catch((error) => {
+        alert(error.status);
+        console.log("error");
+      });
+    setIsLoaded(true);
+  }, []);
+
   let handleSubmit = async (e) => {
     e.preventDefault();
     let res = matchesFacade.createPlayer(playerObj);
@@ -31,6 +51,15 @@ const AdminPlayer = () => {
       console.log("Fail :(");
     }
   };
+
+  const listOfPlayers = players.map((player) => (
+    <li key={player.name}>
+      <ul>Player: {player.name}</ul>
+      <ul>Phone: {player.phone}</ul>
+      <ul>Email: {player.email}</ul>
+      <ul>Status: {player.status}</ul>
+    </li>
+  ));
 
 
   
@@ -75,6 +104,15 @@ const AdminPlayer = () => {
               </form>
             </div>
           </Container>
+          <div>
+              <Container className="shadow-lg p-5 mb-5 bg-white rounded mt-5">
+                <h3 className={"text-center"}>Players</h3>
+
+                <div className="players">
+                  <ul>{listOfPlayers}</ul>
+                </div>
+              </Container>
+            </div>
         </div>
       )}
     </div>

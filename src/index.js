@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App'
 import Home from 'components/Home';
-import apiFacade from "./apiFacade";
 import UserMatch from "components/UserMatch";
 import AdminPlayer from "components/AdminPlayer";
 import AdminMatch from "components/AdminMatch";
