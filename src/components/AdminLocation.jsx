@@ -4,14 +4,14 @@ import MatchesFacade from "../MatchesFacade";
 import { Link } from "react-router-dom";
 import matchesFacade from "../MatchesFacade";
 
-const AdminPlayer = () => {
+const AdminLocation = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
   const [isLoaded, setIsLoaded] = useState(true);
 
-  const playerObj = {
+  const player = {
     name: name,
     phone: phone,
     email: email,
@@ -20,7 +20,7 @@ const AdminPlayer = () => {
 
   let handleSubmit = async (e) => {
     e.preventDefault();
-    let res = matchesFacade.createPlayer(playerObj);
+    let res = matchesFacade.createPlayer(player);
     if (res.status === 200) {
       setName("");
       setPhone("");
@@ -81,4 +81,4 @@ const AdminPlayer = () => {
   );
 };
 
-export default AdminPlayer;
+export default AdminLocation;

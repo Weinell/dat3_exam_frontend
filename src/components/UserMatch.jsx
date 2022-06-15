@@ -26,12 +26,6 @@ const UserMatch = () => {
 
   }, []);
 
-  const obj = {
-    opponentTeam: "Placeholder",
-    judge: "Mr. Placeholder",
-    type: 1,
-    inDoors: false,
-  };
 
   const listOfMatches = matches.map((match) => (
     <li key={match.opponentTeam}>

@@ -28,7 +28,7 @@ function MatchesFacade() {
         fetch(URL + "/api/match/create", options).then(r => r.json());
     }
 
-    // Locations
+    // Players
 
     const getPlayers = () => {
         const options = makeOptions("GET"); //True add's the token
@@ -38,6 +38,13 @@ function MatchesFacade() {
     const createPlayer = (player) => {
         const options = makeOptions("POST", player, true); //True add's the token
         fetch(URL + "/api/player/create", options).then(r => r.json());
+    }
+
+    // Locations
+
+    const createLocation = (location) => {
+        const options = makeOptions("POST", location, true); //True add's the token
+        fetch(URL + "/api/location/create", options).then(r => r.json());
     }
 
     const makeOptions = (method, body,addToken) => {
