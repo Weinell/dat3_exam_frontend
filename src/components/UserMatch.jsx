@@ -24,7 +24,6 @@ const UserMatch = () => {
       });
     setIsLoaded(true);
 
-    console.log("Matches found" + MatchesFacade.getMatches);
   }, []);
 
   const obj = {
@@ -43,9 +42,6 @@ const UserMatch = () => {
     </li>
   ));
 
-  console.log(matches);
-  console.log(matches[0].opponentTeam);
-
   return (
     <div className="content">
       {!isLoaded ? (
@@ -55,7 +51,7 @@ const UserMatch = () => {
           <Container className="shadow-lg p-5 mb-5 bg-white rounded mt-5">
             <h3 className={"text-center"}>Matches</h3>
 
-            <div className="matchesa">
+            <div className="matches">
               <ul>{listOfMatches}</ul>
             </div>
           </Container>

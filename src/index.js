@@ -4,6 +4,7 @@ import App from './App'
 import Home from 'components/Home';
 import apiFacade from "./apiFacade";
 import UserMatch from "components/UserMatch";
+import AdminPlayer from "components/AdminPlayer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -13,6 +14,7 @@ root.render(
             <Route exact="true" path="/" element={<App />}>
                 <Route path="/" element={<Home />}/>
                 <Route path="/matches" element={<UserMatch />} />
+                <Route path="/players" element={<AdminPlayer />} />
             </Route>
             <Route
                 path="*"

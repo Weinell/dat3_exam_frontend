@@ -8,7 +8,7 @@ const Frontpage = () => {
     return (
         <Container className="shadow-lg p-5 mb-5 bg-white rounded mt-5">
             <div className={"mb-5"}>
-                <h1 className={"text-center"}>See Your Matches</h1>
+                <h1 className={"text-center"}>Login To See Your Matches</h1>
             </div>
 
 

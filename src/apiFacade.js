@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import jwt from 'jwt-decode'
 
 
 const URL = "http://localhost:8080";
@@ -36,10 +37,24 @@ function apiFacade() {
         localStorage.setItem("userID",userID)
     }
 
+    const getRoles = () => {
+		return jwt(getToken()).roles;
+	}
+
+	const getName = () => {
+		return jwt(getToken()).username;
+	}
 
     const fetchData = () => {
         const options = makeOptions("GET",true); //True add's the token
-        return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+        if (getRoles() == "user") {
+            setUserType("user");
+            return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+        } else if (getRoles() == "admin") {
+            setUserType("admin");
+            return fetch(URL + "/api/info/admin", options).then(handleHttpErrors);
+        }
+        
     }
     const makeOptions= (method,addToken,body) =>{
         var opts = {

@@ -5,6 +5,14 @@ const URL = "http://localhost:8080";
 
 function MatchesFacade() {
 
+
+    const populate = () => {
+        const options = makeOptions("GET"); //True add's the token
+        return fetch(URL + "/api/info/populate", options);
+    }
+
+    // Matches
+
     const getMatches = () => {
         const options = makeOptions("GET"); //True add's the token
         return fetch(URL + "/api/match/all", options);
@@ -18,6 +26,18 @@ function MatchesFacade() {
     const createMatch = (match) => {
         const options = makeOptions("POST", match, true); //True add's the token
         fetch(URL + "/api/match/create", options).then(r => r.json());
+    }
+
+    // Locations
+
+    const getPlayers = () => {
+        const options = makeOptions("GET"); //True add's the token
+        return fetch(URL + "/api/player/all", options);
+    }
+
+    const createPlayer = (player) => {
+        const options = makeOptions("POST", player, true); //True add's the token
+        fetch(URL + "/api/player/create", options).then(r => r.json());
     }
 
     const makeOptions = (method, body,addToken) => {
@@ -39,9 +59,10 @@ function MatchesFacade() {
     return {
         getMatches,
         getMatchByID,
-        createMatch
+        createMatch,
+        createPlayer
     }
 }
 
-const facade = MatchesFacade();
-export default facade;
+const matchesFacade = MatchesFacade();
+export default matchesFacade;
