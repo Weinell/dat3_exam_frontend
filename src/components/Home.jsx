@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import {Container} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import HomeAdmin from "./HomeAdmin";
 import HomeUser from "./HomeUser";
 
