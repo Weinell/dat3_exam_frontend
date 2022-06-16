@@ -58,8 +58,6 @@ const Header = ({ logout }) => {
               </LinkContainer>
             )}
 
-            <Button className="populate" onClick={matchesFacade.populate} />
-
             <Button className="logout" onClick={logout}>
               Log out
             </Button>

@@ -42,7 +42,14 @@ const UserMatch = () => {
         <div>Loading...</div>
       ) : (
         <div>
-          <Container className="shadow-lg p-5 mb-5 bg-white rounded mt-5">
+          <Container style={{
+          textAlign: "center",
+          maxWidth: "950px",
+          margin: "0 auto",
+          border: "1px solid #e6e6e6",
+          padding: "40px 25px",
+          marginTop: "50px"
+        }} className="shadow-lg p-5 mb-5 bg-white rounded mt-5">
             <h3 className={"text-center"}>Matches</h3>
 
             <div className="matches">

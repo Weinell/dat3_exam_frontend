@@ -24,9 +24,16 @@ function LogIn({login}) {
     }
 
     return (
-      <Container style={{height: "calc(75vh - 60px)"}}>
-          <div className={"d-flex align-items-center justify-content-center h-100 "}>
-              <Form onChange={onChange} onSubmit={performLogin} style={{width:"30%"}} className={"mt-5 shadow-lg p-5 mb-5 bg-white rounded"} >
+      <Container style={{
+        textAlign: "center",
+        maxWidth: "950px",
+        margin: "0 auto",
+        border: "1px solid #e6e6e6",
+        padding: "40px 25px",
+        marginTop: "50px"
+      }}>
+          <div className={"justify-content-center"}>
+              <Form onChange={onChange} onSubmit={performLogin} className={"mt-5 shadow-lg p-5 mb-5 bg-white rounded"} >
                   <div className="text-center">
                       <h1>Login</h1>
                       <h3>user: user // user</h3>

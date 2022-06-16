@@ -71,7 +71,15 @@ const AdminPlayer = () => {
       {!isLoaded ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <div style={{
+            fontFamily: '-apple-system',
+            fontSize: "1rem",
+            fontWeight: 1.5,
+            lineHeight: 1.5,
+            color: "#292b2c",
+            backgroundColor: "#fff",
+            padding: "0 2em"
+          }} >
           <Container className="shadow-lg p-5 mb-5 bg-white rounded mt-5">
             <h3 className={"text-center"}>Create a player</h3>
 
@@ -81,7 +89,7 @@ const AdminPlayer = () => {
                   type="text"
                   value={name}
                   placeholder="Name"
-                  onChange={(e) => setPlayerID(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                 />
                 <input
                   type="text"
@@ -114,7 +122,7 @@ const AdminPlayer = () => {
                     type="text"
                     value={name}
                     placeholder="Name"
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setPlayerID(e.target.value)}
                   />
                   <button type="submit">Delete</button>
                 </form>
