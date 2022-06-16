@@ -1,7 +1,7 @@
 import React from 'react';
 
-const URL = "http://localhost:8080";
-//const URL = "https://weinell.dk/eksamen";
+//const URL = "http://localhost:8080";
+const URL = "https://weinell.dk/eksamen";
 
 function MatchesFacade() {
 

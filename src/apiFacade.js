@@ -2,8 +2,8 @@ import {Link} from "react-router-dom";
 import jwt from 'jwt-decode'
 
 
-const URL = "http://localhost:8080";
-//const URL = "https://weinell.dk/eksamen";
+//const URL = "http://localhost:8080";
+const URL = "https://weinell.dk/eksamen";
 
 function handleHttpErrors(res) {
     if (!res.ok) {

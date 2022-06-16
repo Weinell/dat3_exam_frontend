@@ -8,6 +8,16 @@ const AdminPlayer = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
   const [isLoaded, setIsLoaded] = useState(true);
+  const [playerID, setPlayerID] = useState("");
+
+  const [players, setPlayers] = useState([
+    {
+      name: "name",
+      phone: "phone",
+      email: "email",
+      status: 1,
+    },
+  ]);
 
   const playerObj = {
     name: name,
@@ -16,17 +26,9 @@ const AdminPlayer = () => {
     status: status,
   };
 
-  const [players, setPlayers] = useState([
-    {
-        name: "name",
-        phone: "phone",
-        email: "email",
-        status: 1,
-    },
-  ]);
-
   useEffect(() => {
-    matchesFacade.getPlayers()
+    matchesFacade
+      .getPlayers()
       .then((res) => res.json())
       .then((players) => setPlayers(players))
       .catch((error) => {
@@ -59,8 +61,10 @@ const AdminPlayer = () => {
     </li>
   ));
 
-
-  
+  let handleDelete = async (e) => {
+    e.preventDefault();
+    matchesFacade.deletePlayer(playerID);
+  };
 
   return (
     <div className="content">
@@ -77,7 +81,7 @@ const AdminPlayer = () => {
                   type="text"
                   value={name}
                   placeholder="Name"
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => setPlayerID(e.target.value)}
                 />
                 <input
                   type="text"
@@ -101,16 +105,31 @@ const AdminPlayer = () => {
                 <button type="submit">Create</button>
               </form>
             </div>
+            <div>
+              <h3 className={"text-center"}>Delete a player</h3>
+
+              <div className="playerDelete">
+                <form onSubmit={handleDelete}>
+                  <input
+                    type="text"
+                    value={name}
+                    placeholder="Name"
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                  <button type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
           </Container>
           <div>
-              <Container className="shadow-lg p-5 mb-5 bg-white rounded mt-5">
-                <h3 className={"text-center"}>Players</h3>
+            <Container className="shadow-lg p-5 mb-5 bg-white rounded mt-5">
+              <h3 className={"text-center"}>Players</h3>
 
-                <div className="players">
-                  <ul>{listOfPlayers}</ul>
-                </div>
-              </Container>
-            </div>
+              <div className="players">
+                <ul>{listOfPlayers}</ul>
+              </div>
+            </Container>
+          </div>
         </div>
       )}
     </div>
